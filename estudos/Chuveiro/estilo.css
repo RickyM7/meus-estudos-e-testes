@@ -1,0 +1,13 @@
+:root {
+  --cor: #000;
+}
+
+#botao {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--cor);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100%;
+  font-size: 3em;
+}

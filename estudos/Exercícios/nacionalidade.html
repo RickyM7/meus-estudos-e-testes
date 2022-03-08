@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge" />
+    <title>Qual a Sua Nacionalidade?</title>
+    <style type="text/css" media="all">
+      * {
+        background-color: black;
+        color: white;
+        text-align: center;
+      }
+     div.parent {
+       display: gri;d
+       grid-template-columns: repeat(2, 1fr);
+       gap: 5px;
+        border: 1px white solid;
+       padding: 5px;
+     }
+     input#enviar {
+       width: 30%;
+       padding: 10px;
+       font: 80% Monospace;
+       margin: 2px;
+     }
+     p#frase {
+       text-transform: capitalize;
+       grid-column: span 2;
+     }
+     input {
+       width: auto;
+     }
+     p {
+       width: auto;
+     }
+    </style>
+  </head>
+  <body>
+    <h1>Qual a Sua Nacionalidade?</h1>
+    <div class="parent">
+      <p>Qual o seu nome?</p>
+      <input type="text" name="nome" id="nome" />
+      <p>Em que país você nasceu?</p> 
+      <input type="text" name="nacionalidade" id="nacionalidade" />
+      <p id="frase"></p>
+    </div>
+      <input type="submit" name="enviar" id="enviar" value="Enviar Informações" />
+      
+      <div id="idade">
+        <input type="submit" name="evianos" id="evianos" value="Rodar Função" />
+        <p id="anos-de-idade"></p>
+      </div>
+   
+    <script>
+    function nacional() {
+      let nome = window.document.querySelector("input#nome").value;
+      let nacionalidade = window.document.querySelector("input#nacionalidade").value.toLowerCase();
+      let frase = window.document.querySelector("p#frase");
+    
+      if (nacionalidade == "brasil") {
+        frase.innerHTML = `<p><strong>${nacionalidade}</strong> é o país onde <em>${nome}</em> nasceu. Esta pessoa é Brasileira!</p>`;
+      } else {
+        frase.innerHTML = `<p><strong>${nacionalidade}</strong> é o país onde <em>${nome}</em> nasceu. Esta é uma pessoa extrangeira fedida!</p>`;
+      }
+    };
+    
+    let envia = window.document.querySelector("input#enviar").addEventListener("click", nacional);
+    
+    let anoAtual = Number(new Date().getFullYear());
+    let idade = Number(prompt("Quantos anos de idade você completa/completou este ano?"));
+    let anosDeIdade = window.document.querySelector("p#anos-de-idade").innerHTML = `Você nasceu em ${anoAtual - idade}`;
+    
+    let data = new Date();
+    let diaDaSemana = data.getDay();
+    switch(diaDaSemana) {
+      case 0:
+        window.alert('Hoje é Domingo!')
+        break
+      case 1:
+        window.alert('Hoje é Segunda!')
+        break
+      case 2:
+        window.alert('Hoje é Terça!')
+        break
+      case 3:
+        window.alert('Hoje é Quarta!')
+        break
+      case 4:
+        window.alert('Hoje é Quinta!')
+        break
+        case 5:
+        window.alert('Hoje é Sexta!')
+        break
+        case 6:
+        window.alert('Hoje é Sábado!')
+        break
+        default:
+        window.alert('[ERRO]: Dia inválido!')
+        break
+    }
+    </script>
+  </body>
+</html>

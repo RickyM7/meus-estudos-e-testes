@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  background-image: url('./espaco.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position-x: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+#astronauta {
+  display: flex;
+  background-color: transparent;
+  background-image: url('./astronauta.png');
+  background-size: cover;
+  width: 58vh;
+  height: 58vh;
+}

@@ -1,0 +1,111 @@
+* {
+  font-weight: bold;
+  max-inline-size: 100%;
+  text-overflow: ellipsis;
+
+}
+
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+header {
+  font-family: Times New Roman;
+}
+
+section#calc {
+  display: grid;
+  grid-template-areas:
+  "input input botao"
+  "input input botao"
+  "res res res"
+  "hist hist hist";
+  grid-gap: 2px;
+}
+
+section#calc>div#inputs {
+  grid-area: input;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3px;
+  width: 80%;
+}
+
+section#calc>div#inputs>input {
+  font-family: Monospace;
+}
+
+section#calc>div#inputs>input:focus {
+  background-color: darkGreen;
+  color: white;
+  text-decoration: underline;
+}
+
+section#calc>div#botoes {
+  grid-area: botao;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+}
+
+section#calc>div#botoes>button {
+  padding: 3px;
+  font-size: 96%;
+  font-family: Monospace;
+}
+
+section#calc>div#res {
+  grid-area: res;
+}
+
+section#calc>div#historico {
+  grid-area: hist;
+}
+
+div#historico>div#dropdown {
+  grid-area: drop;
+}
+
+div#historico>div#dropdown>button#abre-o-menu {
+  padding: 3px;
+  font-size: 120%;
+  background-color: #555;
+  color: lightBlue;
+}
+
+/*Essa parte faz essa div aparecer por cima dos outros elementos, assim parecendo um menu dropdown*/
+div#historico>div#dropdown>div#menu {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #333;
+  overflow: scroll;
+  max-width: 90%;
+  max-height: 33%;
+  border: 1px white solid;
+
+}
+
+/*Elemento div recebido do script*/
+div#historico>div#dropdown>div#menu>div.res-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 3px;
+}
+
+/*Parágrafo do div recebido do script*/
+div#historico>div#dropdown>div#menu>div.res-menu>p {
+  background: none;
+  color: white;
+  border: 1px white solid;
+  padding: 2px;
+  margin: 2px;
+}
+
+footer {
+  text-decoration: underline;
+  font-size: 77%;
+}

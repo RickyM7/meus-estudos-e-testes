@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'bhutuka';
+  src: url('./BhuTukaExpandedOne-Regular.ttf') format('truetype');
+}
+
+body {
+  background-color: #000;
+  color: #FFF;
+  text-align: center;
+}
+
+main {
+  width: auto;
+}
+
+main>div {
+  display: inline-block;
+  font-size: 3em;
+  color: #00a719;
+  font-family: bhutuka, sans-serif;
+  font-weight: bold;
+}
+
+#botoes {
+  display: block;
+}
+
+button {
+  border: 2px solid white;
+  outline: none;
+  font-size: 0.5em;
+}
+
+#inicia {
+  background-color: #008910;
+  color: #FFF;
+}
+
+#zera {
+  background-color: #a00000;
+  color: #e4e4e4;
+}

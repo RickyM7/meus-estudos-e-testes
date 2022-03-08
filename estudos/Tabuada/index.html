@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge" />
+    <link rel="stylesheet" href="estilo.css" type="text/css" media="all" />
+    <title>Tabuada</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tabuada</h1>
+    </header>
+    <section>
+      <div id="dados">
+        <p>
+        <label for="multiplicando">Tabuada do número:</label>
+        <input type="number" name="multiplicando" id="multiplicando" />
+        </p>
+        <label for="inicio">Começa em:</label>
+        <input type="number" name="inicio" id="inicio" />
+        <label for="final">Termina em:</label>
+        <input type="number" name="final" id="final" />
+        <button onclick="multiplicar()" type="submit">Multiplicar</button>
+      </div>
+      <div id="res">
+        <select name="resultado" id="resultado">
+          <option value="v0">Digite as informações acima!</option>
+        </select>
+      </div>
+    </section>
+    <footer>
+      <p>&copy;2021 RMS. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

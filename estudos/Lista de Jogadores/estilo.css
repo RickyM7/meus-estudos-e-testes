@@ -1,0 +1,47 @@
+body {
+  background-color: darkGreen;
+  color: white;
+  text-align: center;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#dados {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+#res {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3px;
+  position: absolute;
+  z-index: 1;
+  left: 55%;
+  right: 5%;
+  max-height: 16%;
+  overflow: scroll;
+  background-color: #454545;
+}
+
+#res>div {
+  font-size: 55%;
+  text-transform: capitalize;
+  text-align: left;
+  border: 1px solid white;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  padding-left: 3%;
+}
+
+footer {
+  font-size: 66%;
+  text-decoration: underline;
+}

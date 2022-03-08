@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge" />
+    <title>Calculadora Simples</title>
+    <link rel="stylesheet" href="estilo.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="calc.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <h1>Calculadora Simples</h1>
+    </header>
+    <section id="calc">
+      <div id="inputs">
+        <label for="num1">1º Número</label>
+        <input type="number" name="num1" id="num1" />
+        <label for="num2">2º Número</label>
+        <input type="number" name="num2" id="num2" />
+      </div>
+      <div id="botoes">
+        <button onclick="somar()">&#x2795;[SOMAR]</button>
+        <button onclick="subtrair()">&#x2796;[SUBTRAIR]</button>
+        <button onclick="multi()">✖️[MULTIPLICAR]</button>
+        <button onclick="div()">&#x2797;[DIVIDIR]</button>
+      </div>
+      <div id="res"></div>
+      <div id="historico">
+        <div id="dropdown">
+          <button id="abre-o-menu">HISTÓRICO</button>
+          <div id="menu" hidden="true">
+            <div class="res-menu">
+              <p>Data e Hora</p>
+              <p>Cálculo</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2021 RMS - All Right Reserved</p>
+    </footer>
+    
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Projeto Carrinhos</title>
+  <link rel="stylesheet" href="estilo.css" type="text/css" media="all" />
+  <link rel="preload" href="./pistas/pista1.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista2.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista3.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista4.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista5.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista6.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista7.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista8.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista9.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista10.jpg" as="image" />
+  <link rel="preload" href="./pistas/pista11.jpg" as="image" />
+</head>
+<body>
+  <div id="alertas"></div>
+  <header>
+    <h1>Projeto Carrinhos</h1>
+    <details>
+      <summary>Sobre o Jogo</summary>
+      <ul>
+        <li>O objetivo do jogo é desviar o máximo de vezes possível do carro que vem em sua direção.</li>
+        <li>Você pode clicar em qualquer lugar da area vazia no final da tela para trocar o carro de faixa.</li>
+        <li>Bater no outro carro significa fim de jogo.</li>
+      </ul>
+    </details>
+  </header>
+  <div id="pontos">Pontos: 0</div>
+  <section id="area">
+    <div id="derrota"></div>
+    <div id="carro"></div>
+    <div id="obst0" class="obstaculo"></div>
+  </section>
+  <button id="iniciar">Iniciar Jogo</button>
+  <div id="dados">
+    <label for="jogador"><p>Jogador</p><input type="text" name="jogador" id="jogador" value="" maxlength="10" placeholder="Seu Nome" /></label>
+    <details id="recorde">
+      <summary>Recordes</summary>
+      <table id="recordes">
+        <tr>
+          <th>Posição</th>
+          <th>Jogador</th>
+          <th>Pontos</th>
+        </tr>
+      </table>
+  </details>
+  </div>
+  <div id="divisor"></div>
+  <footer>
+    <p>&copy;2021 RMS. Todos os direitos reservados.</p>
+  </footer>
+  <div id="cliquePulo"></div>
+  
+  <script src="script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

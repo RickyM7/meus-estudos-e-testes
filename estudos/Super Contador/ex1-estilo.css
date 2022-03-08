@@ -1,0 +1,48 @@
+body {
+  background-color: rgb(050, 100, 222);
+  color: white;
+}
+
+header {
+  text-align: center;
+}
+
+section {
+  background-color: lightGray;
+  color: black;
+  border-radius: 20px;
+  padding: 3px;
+  margin: 3px;
+  box-shadow: 3px 3px 3px black;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+section>div#dados {
+  text-align: center;
+}
+
+section>div#dados>input {
+  width: 12%;
+}
+
+section>div#dados>button {
+  margin: 3px;
+  padding: 3px;
+  font-size: 111%;
+}
+
+section>div#resultado {
+  max-height: inherit;
+  font-size: 211%;
+  overflow: scroll;
+  white-space: nowrap;
+  padding: 3px;
+  margin: 3px;
+}
+
+footer {
+  font-family: Helvetica;
+  text-align: center;
+  text-decoration: underline;
+}

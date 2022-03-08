@@ -1,0 +1,275 @@
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  background-color: black;
+  color: white;
+  user-select: none;
+}
+
+#alertas {
+  position: absolute;
+  display: none;
+  text-align: center;
+  background-color: transparent;
+  font-size: 1.1em;
+  animation-name: popup;
+  animation-duration: 0.5s;
+  top: 0;
+  left: 30vw;
+  right: 30vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#alertas>p {
+  border: 1px solid white;
+  background-color: #0e7115;
+  color: white;
+  padding: 0;
+  margin: 0.5px;
+  width: auto;
+}
+
+header {
+  text-align: center;
+}
+
+header>h1 {
+  margin-bottom: 0;
+}
+
+header>details {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #464646;
+  text-align: left;
+}
+
+#area {
+  position: relative;
+  max-width: 100vw;
+  width: auto;
+  height: 100px;
+  background-color: gray;
+  background-image: url('./pistas/pista1.jpg');
+  background-size: 100vw 100px;
+  animation-name: paralax;
+  animation-duration: 0s;
+  animation-iteration-count: infinite;
+}
+
+#derrota {
+  position: absolute;
+  display: none;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  animation-name: derrota;
+  animation-duration: 0.5s;
+  background-color: transparent;
+}
+
+#derrota>p {
+  border: 1px solid white;
+  background-color: #9a0505;
+  color: white;
+  padding: 0;
+  margin: 0.5px;
+  width: auto;
+}
+
+#carro {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: inherit;
+  bottom: 0;
+  background-color: transparent;
+  background-image: url('./carroDino.png');
+  background-size: cover;
+}
+
+.obstaculo {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: inherit;
+  bottom: 0;
+  right: 0;
+}
+
+#obst0 {
+  background-color: transparent;
+  background-image: url('./carroObstaculo.png');
+  background-size: cover;
+}
+
+#pontos {
+  max-width: 100vw;
+  max-height: 1em;
+  width: auto;
+  height: 1em;
+  background-color: black;
+  color: white;
+  padding: 3px;
+}
+
+#iniciar {
+  display: block;
+  width: auto;
+  margin: auto;
+  margin-top: 10px;
+  padding: 3px;
+  font-size: 4vw;
+  color: white;
+  background-color: #0b9c0e;
+  outline: none;
+}
+
+#dados {
+  margin-top: 3px;
+}
+
+label {
+  float: left;
+  font-size: 1em;
+  border: 1px solid white;
+}
+
+label>p {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#jogador {
+  max-width: 18vw;
+  min-width: 10vw;
+  text-align: center;
+  background-color: #464646;
+  color: white;
+  outline: none;
+  border: none;
+  border-left: 1px solid white;
+}
+
+details#recorde {
+  float: right;
+  max-width: 50vw;
+  min-width: 30vw;
+  min-height: 1em;
+  width: auto;
+  text-align: center;
+  border: 1px solid white;
+  padding: 0;
+  background-color: #464646;
+}
+
+summary {
+  outline: none;
+}
+
+#recordes {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+table {
+  border-top: 1px solid white;
+  max-width: 50vw;
+  min-width: 30vw;
+  width: auto;
+  background-color: #464646;
+}
+
+th, td {
+  border: 1px solid white;
+}
+
+#divisor {
+  height: 2em;
+}
+
+footer {
+  position: absolute;
+  font-size: 0.6em;
+  text-align: center;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+#cliquePulo {
+  position: absolute;
+  background-color: transparent;
+}
+
+@keyframes paralax {
+  0%{background-image: url('./pistas/pista1.jpg')}
+  10%{background-image: url('./pistas/pista2.jpg')}
+  20%{background-image: url('./pistas/pista3.jpg')}
+  30%{background-image: url('./pistas/pista4.jpg')}
+  40%{background-image: url('./pistas/pista5.jpg')}
+  50%{background-image: url('./pistas/pista6.jpg')}
+  60%{background-image: url('./pistas/pista7.jpg')}
+  70%{background-image: url('./pistas/pista8.jpg')}
+  80%{background-image: url('./pistas/pista9.jpg')}
+  90%{background-image: url('./pistas/pista10.jpg')}
+  100%{background-image: url('./pistas/pista11.jpg')}
+}
+
+@keyframes popup {
+  0%{top: 20px}
+  5%{top: 19px}
+  10%{top: 18px}
+  15%{top: 17px}
+  20%{top: 16px}
+  25%{top: 15px}
+  30%{top: 14px}
+  35%{top: 13px}
+  40%{top: 12px}
+  45%{top: 11px}
+  50%{top: 10px}
+  55%{top: 9px}
+  60%{top: 8px}
+  65%{top: 7px}
+  70%{top: 6px}
+  75%{top: 5px}
+  80%{top: 4px}
+  85%{top: 3px}
+  90%{top: 2px}
+  95%{top: 1px}
+  100%{top: 0px}
+}
+
+@keyframes derrota {
+  0%{font-size: 0em}
+  5%{font-size: 0.1em}
+  10%{font-size: 0.2em}
+  15%{font-size: 0.3em}
+  20%{font-size: 0.4em}
+  25%{font-size: 0.5em}
+  30%{font-size: 0.6em}
+  35%{font-size: 0.7em}
+  40%{font-size: 0.8em}
+  45%{font-size: 0.9em}
+  50%{font-size: 1em}
+  55%{font-size: 1.1em}
+  60%{font-size: 1.2em}
+  65%{font-size: 1.3em}
+  70%{font-size: 1.4em}
+  75%{font-size: 1.5em}
+  80%{font-size: 1.6em}
+  85%{font-size: 1.7em}
+  90%{font-size: 1.8em}
+  95%{font-size: 1.9em}
+  100%{font-size: 2em}
+}
