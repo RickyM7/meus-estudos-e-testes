@@ -1,0 +1,49 @@
+body {
+  background-color: #000;
+  color: #FFF;
+  font-size: 1em;
+}
+
+main {
+  display: grid;
+  grid-template-raws: repeat(2, 1fr);
+  background-color: #555;
+}
+
+#infos>label {
+  display: block;
+  text-align: left;
+  padding: 3px;
+  font-size: 1.2em;
+  user-select: none;
+}
+
+#infos>label>input {
+  text-align: center;
+  width: auto;
+  max-width: 20%;
+  text-transform: capitalize;
+}
+
+#dados {
+  background-color: #00000075;
+  text-align: center;
+}
+
+strong {
+  font-size: 1.1em;
+}
+
+.notas {
+  background-color: #008000c0;
+}
+
+#aprovOuReprov {
+  display: inline-block;
+  background-color: #008000;
+  color: white;
+  margin: auto;
+  padding: 3px;
+  font-size: 1.5em;
+  border-radius: 0.5em;
+}

@@ -1,0 +1,144 @@
+body {
+  background-color: #000;
+  color: #FFF;
+  text-align: center;
+  user-select: none;
+}
+
+header {
+  margin-bottom: 10px;
+}
+
+header>h1 {
+  margin: 5px;
+}
+
+#iniciar {
+  margin: 0;
+  font-size: 1.1em;
+  background-color: #058512;
+  color: white;
+  outline: none;
+}
+
+details {
+  margin: 9px;
+}
+
+summary {
+  outline: none;
+}
+
+#ops {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+#ops>div {
+  font-size: 0.8em;
+  border: 1px solid white;
+}
+
+#jogador {
+  display: none;
+  margin-top: 10px;
+  border: 1px solid white;
+  background-color: #075d73;
+  color: white;
+  margin: 1px auto 10px auto;
+  padding: 3px;
+  font-size: 1.1em;
+  transform: translate(0, 0);
+}
+
+#alertas {
+  display: none;
+  background-color: #0f65b8;
+  color: white;
+  border: 1px solid white;
+  margin: 1px auto 10px auto;
+  padding: 3px;
+  font-size: 1.1em;
+  transform: translate(0, 0);
+  animation-name: popup;
+  animation-duration: 0.2s;
+}
+
+#jogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+#jogo>div {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  font-size: 0.6em;
+  text-decoration: underline;
+}
+
+@keyframes popup {
+  0%{transform: translate(0, 33px); font-size:2.3em}
+  10%{transform: translate(0, 30px); font-size:2.2em}
+  20%{transform: translate(0, 27px); font-size:2.1em}
+  30%{transform: translate(0, 24px); font-size:2em}
+  40%{transform: translate(0, 21px); font-size:1.9em}
+  50%{transform: translate(0, 18px); font-size:1.8em}
+  60%{transform: translate(0, 15px); font-size:1.7em}
+  70%{transform: translate(0, 12px); font-size:1.6em}
+  80%{transform: translate(0, 9px); font-size:1.5em}
+  90%{transform: translate(0, 6px); font-size:1.4em}
+  100%{transform: translate(0, 3px); font-size:1.3em}
+}
+
+/*Estilizando bordas para formar o jogo da velha*/
+#area1 {
+  border: 1px solid white;
+  border-left: none;
+  border-top: none;
+}
+#area2 {
+  border: 1px solid white;
+  border-top: none;
+}
+#area3 {
+  border: 1px solid white;
+  border-right: none;
+  border-top: none;
+}
+#area4 {
+  border: 1px solid white;
+  border-left: none;
+}
+#area5 {
+  border: 1px solid white;
+}
+#area6 {
+  border: 1px solid white;
+  border-right: none;
+}
+#area7 {
+  border: 1px solid white;
+  border-left: none;
+  border-bottom: none;
+}
+#area8 {
+  border: 1px solid white;
+  border-bottom: none;
+}
+#area9 {
+  border: 1px solid white;
+  border-right: none;
+  border-bottom: none;
+}

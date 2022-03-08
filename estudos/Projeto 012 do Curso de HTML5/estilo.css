@@ -1,0 +1,17 @@
+body {
+  background-color: #FFF;
+  color: #000;
+  margin: 0;
+}
+
+header {
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+header>p>span {
+  color: #CCC;
+}

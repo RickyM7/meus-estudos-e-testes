@@ -1,0 +1,71 @@
+body {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+#area {
+  width: 470px;
+  height: 235px;
+  max-width: 470px;
+  max-height: 235px;
+  border: 2px white solid;
+  outline: 1px white solid;
+  user-select: none;
+}
+
+#bola {
+  background-image: url("./imagens/bola.png");
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: inherit;
+  left: inherit;
+  user-select: none;
+}
+
+#fundo-botao {
+  height: 40px;
+  width: 100px;
+  user-select: none;
+  background-color: #833333;
+  color: #C1C1C1;
+  margin-top: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 2px 2px 2px black;
+}
+
+#fundo-botao>label {
+  height: 40px;
+  font-size: 75%;
+  line-height: 40px;
+  min-width: 100px;
+  max-width: 100px;
+  margin: 0;
+  font-weight: bold;
+}
+
+#interruptor {
+  height: 40px;
+  width: 40px;
+  margin: 0;
+  border: none;
+  outline: none;
+  float: left;
+  visibility: hidden;
+}
+
+#check {
+  height: 40px;
+  width: 40px;
+  background-color: #622323;
+  position: absolute;
+  left: inherit;
+  border-radius: 50%;
+  line-height: 40px;
+}

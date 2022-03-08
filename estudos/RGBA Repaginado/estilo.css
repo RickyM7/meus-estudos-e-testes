@@ -1,0 +1,36 @@
+body {
+  background-color: #333;
+  color: #DDD;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#area {
+  min-width: 400px;
+  max-width: 700px;
+  min-height: 150px;
+  max-height: 300px;
+  margin: auto;
+  outline-width: 6px;
+  outline-style: double;
+  outline-color: white;
+}
+
+#bola {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #FFF;
+  background-image: url('./imagens/bola.png');
+  background-size: cover;
+}
+
+footer {
+  margin: 10px 0 0 0;
+  padding: 1px;
+  font-size: 0.6em;
+}
+
+footer>p {
+  margin: 2px;
+}

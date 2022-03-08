@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Teste</title>
+  <style type="text/css" media="all">
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    
+    nav#links>ul {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      list-style-type: none;
+      overflow: scroll;
+      max-height: 99px;
+    }
+    
+    a {
+      color: white;
+    }
+    
+    div#textos {
+      text-align: left;
+    }
+    
+    button {
+      padding: 6px;
+      font-size: 111%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Teste</h1>
+    <h3 id="cont">Quantidade de Textos (0)</h3>
+    <nav id="links">
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+  <section>
+    <label for="num">Adicionar até qual texto?</label>
+    <input type="number" name="num" id="num" />
+    <button>Adicionar Link e Texto</button>
+    <details>
+      <summary>Textos</summary>
+      <div id="textos"></div>
+    </details>
+  </section>
+  <footer>
+    <a href="#texto-1">Voltar ao 1º texto</a>
+    <p>&copy;2021 RMS. Todos os direitos reservados.</p>
+  </footer>
+  
+  <script type="text/javascript" charset="utf-8">
+    let links = document.querySelector("nav#links>ul");
+    let textos = document.querySelector("div#textos");
+    let cont = document.querySelector("h3#cont");
+    let n = 0;
+    
+    function add() {
+      let num = Number(document.querySelector("input#num").value);
+      for(let n=0;n<=num;n++){
+        
+      
+      links.innerHTML += `<li><a href="#texto-${n}">Texto ${n}</a></li>`;
+      textos.innerHTML += `<p id="texto-${n}" style="font-size:${n}px">${n}º texto!</p>`;
+      cont.innerHTML = `<h3>Quantidade de Textos (${n})</h3>`;
+      }
+    }
+    document.querySelectorAll("button")[0].addEventListener("click", add);
+  </script>
+</body>
+</html>

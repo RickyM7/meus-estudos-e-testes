@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,8,edge" />
+    <title>Que horas são?</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="estilo.css" type="text/css" media="all" />
+    <!--Pré carregando as imagens do site-->
+    <link rel="preload" href="/imgs/manha.png" as="image" />
+    <link rel="preload" href="/imgs/tarde.png" as="image" />
+    <link rel="preload" href="/imgs/noite.png" as="image" />
+  </head>
+  <body>
+    <header>
+      <h1>Que horas são?</h1>
+    </header>
+    <section>
+      <div id="momento"></div>
+      <div id="controla-hora">
+        <div id="horas">
+          <div id="relogio"></div>
+          <!--tag progress para mostrar que o relógio está carregando.-->
+          <progress value="0" max="100" id="prog">Carregando Relógio</progress>
+        </div>
+        <button>Parar Relógio</button>
+      </div>
+      <div>
+        <img src="" alt="" id="imagem" />
+      </div>
+    </section>
+    <footer>
+      <p>&copy;2021 RMS. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>

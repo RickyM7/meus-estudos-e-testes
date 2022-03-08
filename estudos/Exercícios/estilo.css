@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#nome, #nasc {
+  text-align: left;
+}
+
+#dados {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}

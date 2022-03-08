@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Média do Aluno</title>
+  <style type="text/css" media="all">
+    body {
+      background-color: #333;
+      color: #CCC;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="dados">
+    <h3>Dados</h3>
+  </div>
+  <button id="enviar-e-checar">Enviar Dados e Checar Média</button>
+  <script type="text/javascript" charset="utf-8">
+    let dados = document.querySelector("#dados");
+    let checar = document.querySelector("#enviar-e-checar");
+    function media() {
+      let nome = prompt("Qual o nome do aluno?");
+      let nota1 = Number(prompt("Digite a primeira nota."));
+      let nota2 = Number(prompt("Digite a segunda nota."));
+      let media = (nota1+nota2)/2;
+      if (isNaN(nota1)  || isNaN(nota2) || nota1 <= 0 || nota2 <= 0) {
+        alert("Digite uma nota válida!");
+      } else {
+        if (media <= 3) {
+          dados.innerHTML += `<p>Notas ${nota1} e ${nota2}. Média de ${media}: Reprovado.</p>`;
+        } else if (media <= 6) {
+          dados.innerHTML += `<p>Notas ${nota1} e ${nota2}. Média de ${media}: Recuperação.</p>`;
+        } else if (media > 6) {
+          dados.innerHTML += `<p>Notas ${nota1} e ${nota2}. Média de ${media}: Aprovado.</p>`;
+        }
+      }
+    }
+    checar.addEventListener("click", media);
+  </script>
+</body>
+</html>

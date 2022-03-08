@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Média das Notas</title>
+  <link rel="stylesheet" href="./estilo.css" type="text/css" media="all" />
+</head>
+<body>
+  <main>
+    <div id="infos">
+      <label>Nome do Aluno: 
+        <input type="text" name="nome" id="nome" maxlength="50" placeholder="Aluno">
+      </label>
+      <label>1ª Nota: 
+        <input type="number" name="nota1" id="nota1" min="0" max="10" placeholder="10">
+      </label>
+      <label>2ª Nota: 
+        <input type="number" name="nota2" id="nota2" min="0" max="10" placeholder="10">
+      </label>
+    </div>
+    <div id="dados">
+      <p id="osDados"><strong id="aluno">Aluno</strong> recebeu as notas <strong class="notas" id="n1">10</strong> e <strong class="notas" id="n2">10</strong> e sua média é de <strong class="notas" id="m">10</strong>.</p>
+      <p id="aprovOuReprov">Aprovado</p>
+    </div>
+  </main>
+  
+  <script src="./script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
