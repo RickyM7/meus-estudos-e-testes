@@ -203,12 +203,13 @@ function escolherPalavra() {
     
     //oferecendo uma letra e o tamanho da palavra como dicas
     let letraAleatoria = parseInt(Math.random()*palavra.length);
-    dicas.innerHTML = `Dicas:<br />Tema: ${temaDica}<br />Quantidade de Letras: ${palavra.length}<br/>${letraAleatoria+1}ª Letra: ${palavra.charAt(letraAleatoria).toUpperCase()}<br /><p>(Clique para esconder)</p>`;
+    dicas.innerHTML = `Dicas:<br />Tema: ${temaDica}<br />Quantidade de Letras: ${palavra.length}<br/>${letraAleatoria+1}ª Letra: ${palavra.charAt(letraAleatoria).toUpperCase()}<br /><p>(Clique para esconder/Duplo clique para abrir)</p>`;
     dicas.style.transform = `translate(${section.offsetWidth-dicas.offsetWidth}px, ${-boneco.offsetHeight}px)`;
     letra.focus();
   }
 }
 botaoNovoJogo.addEventListener("click", escolherPalavra);
 window.addEventListener("load", escolherPalavra);
-//evento para fechar a dica ao clicar nela
-dicas.addEventListener("click", function(){dicas.style.display = 'none'});
+//eventos para fechar/abrir a dica ao clicar nela
+dicas.addEventListener("click", ()=>{dicas.style.display = 'none'});
+window.addEventListener("dblclick", ()=>{dicas.style.display = 'block'});
