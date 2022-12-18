@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jogo da Forca</title>
+  <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./imgs/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./imgs/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./imgs/favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./estilo.css" type="text/css" media="all" />
+  <!--precarregamento das imagens, scripts e estilos-->
+  <link rel="preload" href="./imgs/forca0.png" as="image" />
+  <link rel="preload" href="./imgs/forca1.png" as="image" />
+  <link rel="preload" href="./imgs/forca2.png" as="image" />
+  <link rel="preload" href="./imgs/forca3.png" as="image" />
+  <link rel="preload" href="./imgs/forca4.png" as="image" />
+  <link rel="preload" href="./imgs/forca5.png" as="image" />
+  <link rel="preload" href="./imgs/forca6.png" as="image" />
+  <link rel="preload" href="./modulos/jogo.js" as="script" />
+  <link rel="preload" href="./modulos/palavras.js" as="script" />
+  <link rel="preload" href="./estilo.css" as="style" />
+</head>
+<body>
+  <div id="alertas"></div>
+  <header>
+    <h1>Jogo da Forca</h1>
+    <button id="iniciar">Novo Jogo</button>
+  </header>
+  <section>
+    <div id="digitadas">Letras Digitadas:</div>
+    <div id="tentativas">Tentativas Restantes: 6</div>
+    <div id="boneco"></div>
+    <div id="caixasLetras"></div>
+    <div id="dicas">Dicas</div>
+    <div>
+      <div id="ganhaPerde"></div>
+      <div id="dados">
+        <label for="letra">Digite uma letra:</label>
+        <input type="text" name="letra" id="letra" maxlength="1" />
+        <button id="enviar">Verificar Letra</button>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy;2021-22 RMS. Todos os direitos reservados.</p>
+  </footer>
+  
+  <!--módulos javascript responsáveis pelo jogo-->
+  <script src="./modulos/jogo.js" type="module" charset="utf-8"></script>
+  <script src="./modulos/palavras.js" type="module" charset="utf-8"></script>
+</body>
+</html>

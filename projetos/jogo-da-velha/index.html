@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jogo da Velha</title>
+  <link rel="stylesheet" href="./estilo.css" type="text/css" media="all" />
+</head>
+<body>
+  <header>
+    <h1>Jogo da Velha</h1>
+    <details id="ops" open>
+      <summary>Opções de Jogo</summary>
+      <div id="ops">
+        <div>
+          <p>Tipo de Jogo:</p>
+          <label>Cpu<input type="radio" name="tipo" checked></label>
+          <label>Manual<input type="radio" name="tipo"></label>
+        </div>
+        <div>
+          <p>Dificuldade da Cpu:</p>
+          <label>Fácil<input type="radio" name="nivel" checked></label>
+          <label>Difícil<input type="radio" name="nivel"></label>
+        </div>
+        <div>
+          <p>Simbolo do jogador 1:</p>
+          <label>Símbolo X<input type="radio" name="simbolo" checked></label>
+          <label>Símbolo O<input type="radio" name="simbolo"></label>
+        </div>
+      </div>
+    </details>
+    <button id="iniciar">Novo Jogo</button>
+  </header>
+  <div id="jogador"></div>
+  <div id="alertas"></div>
+  <section id="jogo">
+    <div id="area1"></div>
+    <div id="area2"></div>
+    <div id="area3"></div>
+    <div id="area4"></div>
+    <div id="area5"></div>
+    <div id="area6"></div>
+    <div id="area7"></div>
+    <div id="area8"></div>
+    <div id="area9"></div>
+  </section>
+  <footer>
+    <p>&copy;2022 RMS. Todos os direitos reservados.</p>
+  </footer>
+  
+  <script src="./script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

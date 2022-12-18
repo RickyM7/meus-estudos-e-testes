@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Playlists do NewPipe para json do Piped</title>
+	<link rel="stylesheet" href="./style.css" type="text/css" media="all" />
+	<script src="./script.js" defer></script>
+</head>
+<body>
+	<details>
+		<summary>
+			COMO USAR:
+		</summary>
+		<p>Apenas entre na playlist (criada no NewPipe) desejada e clique em compartilhar, copie os links e cole na área links, adicione o nome desejado na área de nome e clique em registrar. Faça isso para todas as playlists que quiser, depois é só copiar o texto e salvar em um arquivo.json e importar no Piped.</p>
+	</details>
+	<input type="text" name="nome" id="nome" placeholder="Nome da Playlist" />
+	<textarea rows="5" cols="30" id="links" placeholder="Links"></textarea>
+	<button id="registrar">Registrar Playlist</button>
+	
+	<textarea rows="10" cols="50" id="playlists" readonly></textarea>
+	
+	<button id="copiar">Copiar</button>
+	<button id="limpar">Limpar Playlists</button>
+</body>
+</html>
