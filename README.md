@@ -7,4 +7,4 @@
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/newpipe-playlist-to-piped-json/index.html'>Conversor de Playlists do NewPipe para Arquivo Json (HTML, CSS, JS)</a>
 #### Apenas Para Celular:
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/estudos/pong-com-canvas/index.html'>Pong em Canvas (HTML, CSS, JS)</a>
-- <a href='https://rickym7.github.io/meus-estudos-e-testes/estudos/projeto-carrinhos/index.html'>Projeto Carrinhos (HTML, CSS, JS)</a># meus-estudos-e-testes
+- <a href='https://rickym7.github.io/meus-estudos-e-testes/estudos/projeto-carrinhos/index.html'>Projeto Carrinhos (HTML, CSS, JS)</a>
