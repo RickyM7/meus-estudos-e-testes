@@ -1,0 +1,36 @@
+h1 {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#jogo {
+    width: 500px;
+    height: 250px;
+    /* border: 1px black solid; */
+    outline: 1px black solid;
+}
+
+#dino {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    object-fit: cover;
+    object-position: bottom;
+    user-select: none;
+}
+
+.cacto {
+    background-color: transparent;
+    width: 20px;
+    height: 30px;
+}
+
+#pontos {
+    text-align: center;
+    font-size: large;
+    background-color: transparent;
+}
