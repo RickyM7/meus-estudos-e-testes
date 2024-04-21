@@ -5,6 +5,7 @@
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/jogo-da-forca/index.html'>Jogo da Forca (HTML, CSS, JS)</a>
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/jogo-da-velha/index.html'>Jogo da Velha (HTML, CSS, JS)</a>
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/newpipe-playlist-to-piped-json/index.html'>Conversor de Playlists do NewPipe para Arquivo Json (HTML, CSS, JS)</a>
+- <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/projeto-dino-ia/dino.html'>Jogo do Dino (IA) (HTML, CSS, JS)</a>
 #### Apenas Para Celular:
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/pong-com-canvas/index.html'>Pong em Canvas (HTML, CSS, JS)</a>
 - <a href='https://rickym7.github.io/meus-estudos-e-testes/projetos/projeto-carrinhos/index.html'>Projeto Carrinhos (HTML, CSS, JS)</a>
