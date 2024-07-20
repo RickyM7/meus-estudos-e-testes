@@ -1,3 +1,4 @@
+(function() {
 let jogo = document.getElementById("jogo");
 let dino = document.getElementById("dino");
 let pontos = document.getElementById('pontos');
@@ -6,6 +7,8 @@ let jogoAtivo = false;
 let pontuacao = 0;
 let dinoPosY = jogo.offsetHeight - dino.clientHeight;
 let dinoPosX = 0;
+let velocidadeCacto = 3; // Velocidade inicial dos cactos
+let intervaloCactos = 1000; // Intervalo inicial para criar cactos
 
 // Move o dino para baixo
 dino.style.transform = `translate(${dinoPosX}px, ${dinoPosY}px)`;
@@ -51,33 +54,38 @@ function criarCactus() {
     return { element: cactoDiv, position: posicaoInicial };
 }
 
-
 function moverCactus() {
     let cactos = [];
+    let ultimoTempo = 0;
 
     function criarCactos() {
-        const intervaloCactos = setInterval(() => {
+        if (!jogoAtivo) return;
+        let tempoAtual = Date.now();
+        if (tempoAtual - ultimoTempo >= intervaloCactos) {
             let cacto = criarCactus();
             cactos.push(cacto);
-            if (!jogoAtivo) {
-                clearInterval(intervaloCactos);
-            }
-        }, 1000);
+            ultimoTempo = tempoAtual;
+        }
+        requestAnimationFrame(criarCactos);
     }
-    criarCactos();
 
     function animar() {
         if (jogoAtivo) {
             for (let index = 0; index < cactos.length; index++) {
                 let cacto = cactos[index];
-                cacto.position -= 3; // Velocidade dos cactos
+                cacto.position -= velocidadeCacto; // Velocidade dos cactos
                 cacto.element.style.transform = `translate(${cacto.position}px, ${jogo.offsetHeight - dino.offsetHeight - 30}px)`;
-                if (cacto.position <= -20) {
+                if (cacto.position <= 0) {
                     jogo.removeChild(cacto.element);
                     cactos.splice(index, 1);
                     index--;
                     pontuacao++;
-                    pontos.innerText = `PONTUAÇÂO: ${pontuacao}`;
+                    pontos.innerText = `PONTUAÇÃO (Agente Modelo): ${pontuacao}`;
+
+                    if (pontuacao % 10 === 0) {
+                        velocidadeCacto += 0.5; // Aumenta a velocidade dos cactos a cada 10 pontos
+                        intervaloCactos = Math.max(200, intervaloCactos - 50); // Diminui o intervalo de criação dos cactos, até um mínimo de 200ms
+                    }
                 }
                 if (colisao(dino, cacto.element)) {
                     clearInterval(timer);
@@ -94,6 +102,7 @@ function moverCactus() {
             requestAnimationFrame(animar);
         }
     }
+    criarCactos();
     animar();
 }
 
@@ -119,22 +128,66 @@ function limparTela() {
 function reiniciarJogo() {
     limparTela();
     jogoAtivo = true;
+    velocidadeCacto = 3; // Reseta a velocidade dos cactos
+    intervaloCactos = 1000; // Reseta o intervalo de criação dos cactos
     moverCactus();
     timer = 0;
-    pontos.innerText = `PONTUAÇÂO: 0`;
+    pontos.innerText = `PONTUAÇÃO (Agente Modelo): 0`;
     pontos.style.color = 'black';
     pontos.style.backgroundColor = 'transparent';
 
-    // // Posiciona o dinossauro no início do jogo
+    // Posiciona o dinossauro no início do jogo
     dinoPosY = jogo.offsetHeight - dino.clientHeight;
-    // dinoPosX = 0;
+    dinoPosX = 0;
 
     // Atualiza a posição do dinossauro
-    dino.style.transform = `translateY(${dinoPosY}px)`;
+    dino.style.transform = `translate(${dinoPosX}px, ${dinoPosY}px)`;
 
     window.addEventListener("keydown", (e) => {if (e.code == 'Enter' && !jogoAtivo) {reiniciarJogo();}});
 }
 
+function iniciarAgente(sensor) {
+    agente_timer = setInterval(() => {
+        if(sensor()) {
+            acionador();
+        }
+        if (!jogoAtivo) {
+            clearInterval(agente_timer);
+        }
+    }, 50);
+}
+
+// Agente Reativo Simples
+function agenteSimples() {
+    iniciarAgente(sensorAS);
+}
+
+// Agente Reativo Baseado em Modelo
+function agenteModelo() {
+    iniciarAgente(sensorAM);
+}
+
+function sensorAS() {
+    let dinoRect = dino.getBoundingClientRect();
+    let cacto = document.getElementsByClassName('cacto')[0];
+    let cactoRect = cacto.getBoundingClientRect();
+
+    return (dinoRect.right + 20) >= cactoRect.left; 
+}
+
+function sensorAM(){
+    let dinoRect = dino.getBoundingClientRect();
+    let cacto = document.getElementsByClassName('cacto')[0];
+    let cactoRect = cacto.getBoundingClientRect();
+    let estado = velocidadeCacto;
+    let modelo = (estado - 3) * 12; 
+
+    return (dinoRect.right + 20 + modelo) >= cactoRect.left; 
+}
+
+function acionador(){
+    window.dispatchEvent(new KeyboardEvent('keydown', {code: 'ArrowUp'}));
+}
 
 // Eventos 
 window.addEventListener("keydown", (e) => {
@@ -143,4 +196,9 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
-window.addEventListener("keydown", (e) => {if (e.code == 'Enter' && !jogoAtivo) {reiniciarJogo();}});
+window.addEventListener("keydown", (e) => {if (e.code == 'Enter' && !jogoAtivo) {
+    reiniciarJogo();
+    // agenteSimples();
+    agenteModelo();
+}});
+})();

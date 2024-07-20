@@ -21,16 +21,43 @@ h1 {
     object-fit: cover;
     object-position: bottom;
     user-select: none;
+    /* position: absolute; */
+    transform: translate(0px, 205px);
+}
+
+#dinoAS {
+    width: 45px;
+    height: 45px;
+    background-color: transparent;
+    object-fit: cover;
+    object-position: bottom;
+    user-select: none;
+    /* filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%); */
+    position: absolute;
+    transform: rotate(180deg) scaleX(-1);
 }
 
 .cacto {
     background-color: transparent;
     width: 20px;
     height: 30px;
+    /* position: absolute; */
+}
+.cactoAS {
+    background-color: transparent;
+    width: 20px;
+    height: 30px;
+    /* position: absolute; */
 }
 
 #pontos {
     text-align: center;
     font-size: large;
     background-color: transparent;
+}
+#pontosAS {
+    text-align: center;
+    font-size: large;
+    background-color: transparent;
+    color: red;
 }
