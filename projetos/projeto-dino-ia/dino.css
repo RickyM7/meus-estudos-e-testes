@@ -1,6 +1,15 @@
-h1 {
+body {
     text-align: center;
 }
+
+details {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
 
 #container {
     display: flex;
