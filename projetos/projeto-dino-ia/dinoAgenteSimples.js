@@ -194,7 +194,14 @@ window.addEventListener("keydown", (e) => {
     }
 });
 
+// Início no PC
 window.addEventListener("keydown", (e) => {if (e.code == 'Enter' && !jogoAtivoAS) {
+    reiniciarJogoAS();
+    agenteSimplesAS();
+    // agenteModelo();
+}});
+// Início no celular
+window.addEventListener("click", () => {if (!jogoAtivoAS) {
     reiniciarJogoAS();
     agenteSimplesAS();
     // agenteModelo();
