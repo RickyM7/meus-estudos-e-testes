@@ -176,7 +176,7 @@ ordem_da_subordem(Subordem):- subordem(Ordem, Subordem),
 					   	 	  format('Ordem da subordem ~w: ~w~n', [Subordem, Ordem]).
 animais_da_subordem(Subordem):- findall(Soanimal, soanimal(Subordem, Soanimal), Soanimais),
 				    	  		format('Animais da subordem ~w: ~w~n', [Subordem, Soanimais]).
-%% familia
+% familia
 reino_da_familia(Familia):- reino(Reino, Filo),
 						    filo(Filo, Classe),
 						    classe(Classe, Ordem),
