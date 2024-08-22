@@ -1,16 +1,16 @@
-%% FATOS
-%% reino - filo
+% FATOS
+% reino - filo
 reino(animalia, chordata).
 reino(animalia, arthropoda).
 reino(animalia, porifera).
-%% filo - classe
+% filo - classe
 filo(chordata, mammalia).
 filo(chordata, aves).
 filo(chordata, reptilia).
 filo(chordata, actinopterygii).
 filo(arthropoda, insecta).
 filo(porifera, demospongiae).
-%% classe - ordem
+% classe - ordem
 classe(mammalia, carnivora).
 classe(mammalia, artiodactyla).
 classe(mammalia, perissodactyla).
@@ -21,7 +21,7 @@ classe(reptilia, squamata).
 classe(actinopterygii, perciformes).
 classe(insecta, lepidoptera).
 classe(demospongiae).
-%% ordem - subordem
+% ordem - subordem
 subordem(carnivora).
 subordem(artiodactyla).
 subordem(perissodactyla).
@@ -31,7 +31,7 @@ subordem(crocodylia).
 subordem(perciformes).
 subordem(lepidoptera).
 subordem(squamata, serpentes).
-%% ordem - família
+% ordem - família
 ordem(carnivora, felidae).
 ordem(carnivora, canidae).
 ordem(artiodactyla, elephantidae).
@@ -45,9 +45,9 @@ ordem(crocodylia, crocodylidae).
 ordem(perciformes, pomacentridae).
 ordem(lepidoptera, lepidoptera).
 ordem(squamata).
-%% subordem - animal
+% subordem - animal
 soanimal(serpentes, cobra).
-%% familia - animal
+% familia - animal
 familia(felidae, gato).
 familia(felidae, leao).
 familia(felidae, tigre).
@@ -64,8 +64,8 @@ familia(crocodylidae, jacare).
 familia(pomacentridae, peixe-palhaco).
 familia(lepidoptera, borboleta).
 familia(spongidae, esponja).
-%% REGRAS
-%% reino
+% REGRAS
+% reino
 filos_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						format('Filos do reino ~w: ~w', [Reino, Filos]).
 classes_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
@@ -94,7 +94,7 @@ animais_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						  findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
 						  append(Soanimais, Fanimais, Animais),
 						  format('Animais do reino ~w: ~w', [Reino, Animais]).
-%% filo
+% filo
 reino_do_filo(Filo):- reino(Reino, Filo),
 					  format('Reino do filo ~w: ~w~n', [Filo, Reino]).
 classes_do_filo(Filo):- findall(Classe, filo(Filo, Classe), Classes),
@@ -118,7 +118,7 @@ animais_do_filo(Filo):- findall(Classe, filo(Filo, Classe), Classes),
 						findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
 						append(Soanimais, Fanimais, Animais),
 					    format('Animais do filo ~w: ~w~n', [Filo, Animais]).
-%% classe
+% classe
 reino_da_classe(Classe):- reino(Reino, Filo),
 						  filo(Filo, Classe),
 						  format('Reino da classe ~w: ~w~n', [Classe, Reino]), !.
@@ -139,7 +139,7 @@ animais_da_classe(Classe):- findall(Ordem, classe(Classe, Ordem), Ordens),
 							findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
 							append(Soanimais, Fanimais, Animais),
 					    	format('Animais da classe ~w: ~w~n', [Classe, Animais]).
-%% ordem
+% ordem
 reino_da_ordem(Ordem):- reino(Reino, Filo),
 						filo(Filo, Classe),
 						classe(Classe, Ordem),
@@ -159,7 +159,7 @@ animais_da_ordem(Ordem):- findall(Subordem, subordem(Ordem, Subordem), Subordens
 						  findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
 						  append(Soanimais, Fanimais, Animais),
 				    	  format('Animais da ordem ~w: ~w~n', [Ordem, Animais]).
-%% subordem
+% subordem
 reino_da_subordem(Subordem):- reino(Reino, Filo),
 						      filo(Filo, Classe),
 						      classe(Classe, Ordem),
@@ -193,7 +193,7 @@ ordem_da_familia(Familia):- ordem(Ordem, Familia),
 					   	 	format('Ordem da familia ~w: ~w~n', [Familia, Ordem]).
 animais_da_familia(Familia):- findall(Fanimal, familia(Familia, Fanimal), Fanimais),
 				    	  	  format('Animais da familia ~w: ~w~n', [Familia, Fanimais]).
-%% animal
+% animal
 reino_do_animal(Animal):- (Animal == esponja
 						  -> Reino = animalia
 						  ;
