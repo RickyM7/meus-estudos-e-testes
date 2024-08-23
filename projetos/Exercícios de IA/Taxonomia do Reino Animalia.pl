@@ -67,24 +67,24 @@ familia(spongidae, esponja).
 % REGRAS
 % reino
 filos_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
-						format('Filos do reino ~w: ~w', [Reino, Filos]).
+						format('Filos do reino ~w: ~w~n', [Reino, Filos]).
 classes_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						  findall(Classe, (member(Filo, Filos), filo(Filo, Classe)), Classes),
-						  format('Classes do reino ~w: ~w', [Reino, Classes]).
+						  format('Classes do reino ~w: ~w~n', [Reino, Classes]).
 ordens_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						 findall(Classe, (member(Filo, Filos), filo(Filo, Classe)), Classes),
 						 findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
-						 format('Ordens do reino ~w: ~w', [Reino, Ordens]).
+						 format('Ordens do reino ~w: ~w~n', [Reino, Ordens]).
 subordens_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						 	findall(Classe, (member(Filo, Filos), filo(Filo, Classe)), Classes),
 						 	findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
 						 	findall(Subordem, (member(Ordem, Ordens), subordem(Ordem, Subordem)), Subordens),
-						 	format('Subordens do reino ~w: ~w', [Reino, Subordens]).
+						 	format('Subordens do reino ~w: ~w~n', [Reino, Subordens]).
 familias_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						   findall(Classe, (member(Filo, Filos), filo(Filo, Classe)), Classes),
 						   findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
 						   findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias),
-						   format('Familias do reino ~w: ~w', [Reino, Familias]).
+						   format('Familias do reino ~w: ~w~n', [Reino, Familias]).
 animais_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						  findall(Classe, (member(Filo, Filos), filo(Filo, Classe)), Classes),
 						  findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
@@ -93,7 +93,7 @@ animais_do_reino(Reino):- findall(Filo, reino(Reino, Filo), Filos),
 						  findall(Soanimal, (member(Subordem, Subordens), soanimal(Subordem, Soanimal)), Soanimais),
 						  findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
 						  append(Soanimais, Fanimais, Animais),
-						  format('Animais do reino ~w: ~w', [Reino, Animais]).
+						  format('Animais do reino ~w: ~w~n', [Reino, Animais]).
 % filo
 reino_do_filo(Filo):- reino(Reino, Filo),
 					  format('Reino do filo ~w: ~w~n', [Filo, Reino]).
@@ -106,17 +106,24 @@ subordens_do_filo(Filo):- findall(Classe, filo(Filo, Classe), Classes),
 						  findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
 					      findall(Subordem, (member(Ordem, Ordens), subordem(Ordem, Subordem)), Subordens),
 					      format('Subordens do filo ~w: ~w~n', [Filo, Subordens]).
-familias_do_filo(Filo):- findall(Classe, filo(Filo, Classe), Classes),
+familias_do_filo(Filo):- (Filo == porifera
+                         ->  Familias = [spongiae]
+                         ;
+                         findall(Classe, filo(Filo, Classe), Classes),
 						 findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
-					     findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias),
+					     findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias)
+                         ),
 					     format('Familias do filo ~w: ~w~n', [Filo, Familias]).
-animais_do_filo(Filo):- findall(Classe, filo(Filo, Classe), Classes),
+animais_do_filo(Filo):- (Filo == porifera
+                         ->  Animais = [esponja]
+                         ;
+                        findall(Classe, filo(Filo, Classe), Classes),
 						findall(Ordem, (member(Classe, Classes), classe(Classe, Ordem)), Ordens),
 						findall(Subordem, (member(Ordem, Ordens), subordem(Ordem, Subordem)), Subordens),
 					    findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias),
 					    findall(Soanimal, (member(Subordem, Subordens), soanimal(Subordem, Soanimal)), Soanimais),
 						findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
-						append(Soanimais, Fanimais, Animais),
+						append(Soanimais, Fanimais, Animais)),
 					    format('Animais do filo ~w: ~w~n', [Filo, Animais]).
 % classe
 reino_da_classe(Classe):- reino(Reino, Filo),
@@ -129,15 +136,21 @@ ordens_da_classe(Classe):- findall(Ordem, classe(Classe, Ordem), Ordens),
 subordens_da_classe(Classe):- findall(Ordem, classe(Classe, Ordem), Ordens),
 					      	  findall(Subordem, (member(Ordem, Ordens), subordem(Ordem, Subordem)), Subordens),
 					      	  format('Subordens da classe ~w: ~w~n', [Classe, Subordens]).
-familias_da_classe(Classe):- findall(Ordem, classe(Classe, Ordem), Ordens),
-					     	 findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias),
+familias_da_classe(Classe):- (Classe == demospongiae
+                         	 ->  Familias = [spongiae]
+                         	 ;
+                             findall(Ordem, classe(Classe, Ordem), Ordens),
+					     	 findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias)),
 					     	 format('Familias da classe ~w: ~w~n', [Classe, Familias]).
-animais_da_classe(Classe):- findall(Ordem, classe(Classe, Ordem), Ordens),
+animais_da_classe(Classe):- (Classe == demospongiae
+                            ->  Animais = [esponja]
+                            ;
+                            findall(Ordem, classe(Classe, Ordem), Ordens),
 							findall(Subordem, (member(Ordem, Ordens), subordem(Ordem, Subordem)), Subordens),
 					    	findall(Familia, (member(Ordem, Ordens), ordem(Ordem, Familia)), Familias),
 					    	findall(Soanimal, (member(Subordem, Subordens), soanimal(Subordem, Soanimal)), Soanimais),
 							findall(Fanimal, (member(Familia, Familias), familia(Familia, Fanimal)), Fanimais),
-							append(Soanimais, Fanimais, Animais),
+							append(Soanimais, Fanimais, Animais)),
 					    	format('Animais da classe ~w: ~w~n', [Classe, Animais]).
 % ordem
 reino_da_ordem(Ordem):- reino(Reino, Filo),
@@ -177,17 +190,26 @@ ordem_da_subordem(Subordem):- subordem(Ordem, Subordem),
 animais_da_subordem(Subordem):- findall(Soanimal, soanimal(Subordem, Soanimal), Soanimais),
 				    	  		format('Animais da subordem ~w: ~w~n', [Subordem, Soanimais]).
 % familia
-reino_da_familia(Familia):- reino(Reino, Filo),
+reino_da_familia(Familia):- (Familia == spongidae
+                            ->  Reino = animalia
+                            ;   
+                            reino(Reino, Filo),
 						    filo(Filo, Classe),
 						    classe(Classe, Ordem),
-						    ordem(Ordem, Familia),
+						    ordem(Ordem, Familia)),
 						    format('Reino da familia ~w: ~w~n', [Familia, Reino]), !.
-filo_da_familia(Familia):- filo(Filo, Classe),
+filo_da_familia(Familia):- (Familia == spongidae
+                           ->  Filo = porifera
+                           ;   
+                           filo(Filo, Classe),
 					   	   classe(Classe, Ordem),
-					   	   ordem(Ordem, Familia),
+					   	   ordem(Ordem, Familia)),
 					   	   format('Filo da familia ~w: ~w~n', [Familia, Filo]), !.
-classe_da_familia(Familia):- classe(Classe, Ordem),
-					   		 ordem(Ordem, Familia),
+classe_da_familia(Familia):- (Familia == spongidae
+                             ->  Classe = demospongiae
+                             ;
+                             classe(Classe, Ordem),
+					   		 ordem(Ordem, Familia)),
 					   	 	 format('Classe da familia ~w: ~w~n', [Familia, Classe]), !.
 ordem_da_familia(Familia):- ordem(Ordem, Familia),
 					   	 	format('Ordem da familia ~w: ~w~n', [Familia, Ordem]).
