@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jogo da Velha</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="/modulos/pvp-ou-bot.js" defer></script>
+</head>
+<body>
+	<div id="tipoDeJogo">
+		<p>Tipo de Jogo</p>
+		[<label>PVP<input type="radio" name="tipo" value="pvp" checked></label>|
+		<label>BOT<input type="radio" name="tipo" value="bot"></label>]
+	  </div>
+	<div id="jogo">
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+		<div class="area"></div>
+	</div>
+	<button id="jogar">JOGAR/REINICIAR</button>
+</body>
+</html>

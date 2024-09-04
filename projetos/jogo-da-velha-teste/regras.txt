@@ -1,0 +1,2 @@
+se tiver dois números iguais que não seja do símbolo dele o bot bloqueia a jogada, e se o símbolo for o dele ele joga alí pra ganhar
+se tiver só um número igual ele joga em algum lugar logo após esse número

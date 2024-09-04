@@ -1,0 +1,32 @@
+body {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+#jogo {
+	width: clamp(350px, 400px, 450px);
+	height: clamp(350px, 400px, 450px);
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.area {
+	border: 1px solid black;
+	display: grid;
+    place-items: center;
+	user-select: none;
+	font-size: clamp(4rem, 10vw, 7rem);
+}
+
+#tipoDeJogo {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border: 1px solid black;
+}
+
+#jogar {
+	font-size: clamp(1rem, 1.5rem, 2rem);
+}
