@@ -17,7 +17,7 @@ body {
 	display: grid;
     place-items: center;
 	user-select: none;
-	font-size: clamp(2rem, 4vw, 6rem);
+	font-size: clamp(2rem, 3rem, 5rem);
 }
 
 #tipoDeJogo {
