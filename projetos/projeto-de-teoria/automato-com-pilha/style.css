@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0 1vw;
+}
+body {
+    display: flex;
+	align-items: center;
+	flex-direction: column;
+    justify-content: center;
+	text-align: center;
+}
+
+#container {
+    border: 1px solid black;
+    border-radius: 1vw;
+    padding: 1vw;
+    background-color: darkcyan;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+input, p {
+    font-size: clamp(1rem, 2.5rem, 4rem);
+}
+
+p {
+    color: white;
+}
