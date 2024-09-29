@@ -19,9 +19,7 @@ matriz_img_original = np.array(img_original) # converte para uma matriz
 # FUNÇÕES
 # Função para calcular o MSE entre a imagem gerada e a imagem original
 def mse(imgGer, imgOrig):
-    mse = np.sum((imgGer.astype("float") - imgOrig.astype("float")) ** 2)
-    mse /= float(imgGer.shape[0] * imgGer.shape[1])
-    return mse
+    return np.mean((imgGer.astype("float") - imgOrig.astype("float")) ** 2)
 
 # Função para gerar imagem a partir de um cromossomo
 def ger_img_cromo(cromossomo):
