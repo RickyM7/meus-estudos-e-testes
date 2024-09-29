@@ -129,3 +129,4 @@ plt.ioff()  # Desliga o modo interativo
 plt.show()
 # Salvar a imagem final
 Image.fromarray(melhor_img.astype(np.uint8)).save('imagem_final.jpg')
+print(f"Imagem Final (MSE: {melhor_fitness:.2f})")
