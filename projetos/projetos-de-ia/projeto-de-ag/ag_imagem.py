@@ -127,3 +127,5 @@ ax[1].imshow(melhor_img, cmap='gray')
 ax[1].set_title(f"Imagem Final (MSE: {melhor_fitness:.2f})")
 plt.ioff()  # Desliga o modo interativo
 plt.show()
+# Salvar a imagem final
+Image.fromarray(melhor_img.astype(np.uint8)).save('imagem_final.jpg')
