@@ -12,7 +12,7 @@ taxa_mutacao = 0.25
 mse_dez_ger = deque(maxlen=5) #mse das ultimas 5 gerações
 
 # Carrega a imagem original
-img_original = Image.open('test2.jpg').convert('L')
+img_original = Image.open('./test2.jpg').convert('L')
 # img_original = img_original.resize((64, 64))
 matriz_img_original = np.array(img_original) # converte para uma matriz
 
