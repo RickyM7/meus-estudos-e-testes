@@ -25,7 +25,7 @@ def mse(imgGer, imgOrig):
 
 # Função para gerar imagem a partir de um cromossomo
 def ger_img_cromo(cromossomo):
-    # inicializa a imagem como branca (intensidade 255)
+    # inicializa a imagem como branca (cor 255)
     img = np.ones((64, 64)) * 255
     qtd_pixels = len(cromossomo) // 3  # cada 3 valores do cromossomo representam um pixel
     for i in range(qtd_pixels):
