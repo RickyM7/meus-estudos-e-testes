@@ -14,7 +14,7 @@ mse_cinco_ger = deque(maxlen=5) #mse das últimas 5 gerações
 
 # Carrega a imagem original
 img_original = Image.open('teste2.jpg').convert('L')
-# img_original = img_original.resize((64, 64))
+# img_original = img_original.resize((tam_img, tam_img))
 matriz_img_original = np.array(img_original) # converte para uma matriz
 
 # FUNÇÕES
