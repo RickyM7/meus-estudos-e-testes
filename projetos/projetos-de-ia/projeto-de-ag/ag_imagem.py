@@ -9,7 +9,7 @@ tam_populacao = 150
 tam_cromossomo = 150  # 150 posições no cromossomo
 geracoes = 500
 taxa_mutacao = 0.25
-mse_dez_ger = deque(maxlen=5) #mse das ultimas 5 gerações
+mse_cinco_ger = deque(maxlen=5) #mse das últimas 5 gerações
 
 # Carrega a imagem original
 img_original = Image.open('teste2.jpg').convert('L')
@@ -79,11 +79,11 @@ for geracao in range(geracoes):
     for individuo in populacao:
         img_gerada = ger_img_cromo(individuo)
         fitness = mse(img_gerada, matriz_img_original)
-        if len(mse_dez_ger) < 5:
-            mse_dez_ger.append(fitness)
+        if len(mse_cinco_ger) < 5:
+            mse_cinco_ger.append(fitness)
         else:
-            mse_dez_ger.popleft()
-            mse_dez_ger.append(fitness)       
+            mse_cinco_ger.popleft()
+            mse_cinco_ger.append(fitness)       
 
         fitnesses.append(fitness)
 
@@ -104,11 +104,11 @@ for geracao in range(geracoes):
     prox_populacao = deque()
     while len(prox_populacao) < tam_populacao:
         # dif = calcula a mudança/diferença entre as últimas gerações para ver se está estagnado ou não
-        dif = np.diff(mse_dez_ger)
-        if len(mse_dez_ger) == 5 and len(dif[dif < 0]) > 0 and abs(np.mean(dif[dif < 0])) < 20:
+        dif = np.diff(mse_cinco_ger)
+        if len(mse_cinco_ger) == 5 and len(dif[dif < 0]) > 0 and abs(np.mean(dif[dif < 0])) < 20:
             pai1 = mutacao(selecao_por_torneio(populacao, fitnesses), float('inf'))
             pai2 = mutacao(selecao_por_torneio(populacao, fitnesses), float('inf'))
-            mse_dez_ger.clear()
+            mse_cinco_ger.clear()
         else:
             pai1 = selecao_por_torneio(populacao, fitnesses)
             pai2 = selecao_por_torneio(populacao, fitnesses)
