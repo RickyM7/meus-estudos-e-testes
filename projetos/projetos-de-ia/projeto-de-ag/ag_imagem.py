@@ -7,8 +7,9 @@ from collections import deque
 # Configurações do AG
 tam_populacao = 150
 tam_cromossomo = 150  # 150 posições no cromossomo
+tam_img = 64  # 64x64
 geracoes = 500
-taxa_mutacao = 0.25
+taxa_mutacao = 0.05
 mse_cinco_ger = deque(maxlen=5) #mse das últimas 5 gerações
 
 # Carrega a imagem original
@@ -22,14 +23,14 @@ def mse(imgGer, imgOrig):
     return np.mean((imgGer.astype("float") - imgOrig.astype("float")) ** 2)
 
 # Função para gerar imagem a partir de um cromossomo
-def ger_img_cromo(cromossomo):
+def ger_img_cromo(tam_img, cromossomo):
     # inicializa a imagem como branca (cor 255)
-    img = np.ones((64, 64)) * 255
+    img = np.ones((tam_img, tam_img)) * 255
     qtd_pixels = len(cromossomo) // 3  # cada 3 valores do cromossomo representam um pixel
     for i in range(qtd_pixels):
         # extraindo x, y e cor do pixel a partir do cromossomo
-        x = int(cromossomo[i * 3] % 64)
-        y = int(cromossomo[i * 3 + 1] % 64)
+        x = int(cromossomo[i * 3] % tam_img)
+        y = int(cromossomo[i * 3 + 1] % tam_img)
         cor = cromossomo[i * 3 + 2] % 256
         img[x, y] = cor
     return img
@@ -63,11 +64,11 @@ for _ in range(tam_populacao):
     populacao.append(cromosssomo_aleatorio)
 
 # Configurar a visualização dinâmica
-plt.ion()  # Modo interativo ligado
+# plt.ion()  # Modo interativo ligado
 fig, ax = plt.subplots(1, 2, figsize=(10, 5))
 
 # Mostrar a imagem original
-ax[0].imshow(matriz_img_original, cmap='gray')
+ax[0].imshow(img_original, cmap='gray')
 ax[0].set_title("Imagem Original")
 
 # Iniciar o algoritmo genético
@@ -77,7 +78,7 @@ melhor_fitness = float('inf')
 for geracao in range(geracoes):
     fitnesses = []
     for individuo in populacao:
-        img_gerada = ger_img_cromo(individuo)
+        img_gerada = ger_img_cromo(tam_img, individuo)
         fitness = mse(img_gerada, matriz_img_original)
         if len(mse_cinco_ger) < 5:
             mse_cinco_ger.append(fitness)
@@ -94,11 +95,11 @@ for geracao in range(geracoes):
         melhor_cromossomo = populacao[fitnesses.index(menor_fitness)]
 
     # Atualizar a imagem gerada dinamicamente a cada 10 gerações
-    if geracao % 10 == 0:
-        melhor_img = ger_img_cromo(melhor_cromossomo)
-        ax[1].imshow(melhor_img, cmap='gray')
-        ax[1].set_title(f"AG Aproximação (Geração {geracao}, MSE: {melhor_fitness:.2f})")
-        plt.pause(0.1)  # Pausa para visualização
+    # if geracao % 10 == 0:
+    #     melhor_img = ger_img_cromo(tam_img, melhor_cromossomo)
+    #     ax[1].imshow(melhor_img, cmap='gray')
+    #     ax[1].set_title(f"AG Aproximação (Geração {geracao}, MSE: {melhor_fitness:.2f})")
+    #     plt.pause(0.1)  # Pausa para visualização
 
     # Geração da nova população
     prox_populacao = deque()
@@ -120,11 +121,12 @@ for geracao in range(geracoes):
     populacao = prox_populacao
 
 # Mostrar a imagem final
-melhor_img = ger_img_cromo(melhor_cromossomo)
-ax[1].imshow(melhor_img, cmap='gray')
-ax[1].set_title(f"Imagem Final (MSE: {melhor_fitness:.2f})")
-plt.ioff()  # Desliga o modo interativo
-plt.show()
+melhor_img = ger_img_cromo(tam_img, melhor_cromossomo)
 # Salvar a imagem final
 Image.fromarray(melhor_img.astype(np.uint8)).save('imagem_final.jpg')
+img_final = plt.imread('imagem_final.jpg')
+ax[1].imshow(img_final, cmap='gray')
+ax[1].set_title(f"Imagem Final (MSE: {melhor_fitness:.2f})")
+# plt.ioff()  # Desliga o modo interativo
+plt.show()
 print(f"Imagem Final (MSE: {melhor_fitness:.2f})")
