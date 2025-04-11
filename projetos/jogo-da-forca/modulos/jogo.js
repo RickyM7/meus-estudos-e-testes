@@ -34,7 +34,7 @@ let tempoAlerta;
 function jogo() {
   if (jogando == 1 && ganhouPerdeu == 0) {
     let tamanhoPalavra = palavra.length;
-    // letraMin = letra minúscula
+    // letraMin = letra minúscula, e o normalize serve pra tirar os acentos
     let letraMin = letra.value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
     
     if (letra.value.length == 0) {
@@ -44,11 +44,6 @@ function jogo() {
       clearTimeout(tempoAlerta);
       tempoAlerta = setTimeout(()=>{alertas.style.display = `none`; clearTimeout(tempoAlerta); alertas.innerHTML=``;}, 2000);
     } else {
-      if (letrasDigitadas.indexOf(letraMin.toUpperCase()) == -1) {
-        letrasDigitadas.push(letraMin.toUpperCase());
-      }
-      digitadas.innerHTML = `Letras Digitadas: ${letrasDigitadas}`;
-      
       if (palavraSemAcento.match(letraMin) == letraMin && letrasAcertadas.indexOf(letraMin) == -1) {
         letrasAcertadas.push(letraMin);
         
@@ -60,16 +55,29 @@ function jogo() {
             letrasCertas++;
           }
         }
-        
+
+      // Verifica se já acertou a letra
       } else if (letrasAcertadas.indexOf(letraMin) != -1) {
         // cria um alerta/popup
         alertas.innerHTML = `<p>Você já digitou e acertou essa letra!</p>`;
         alertas.style.display = `block`;
         clearTimeout(tempoAlerta);
         tempoAlerta = setTimeout(()=>{alertas.style.display = `none`; clearTimeout(tempoAlerta); alertas.innerHTML=``;}, 2000);
-      } else {
-        erros++;
       }
+
+      // Verifica se já foi digitada e se foi acertada
+      if (letrasDigitadas.indexOf(letraMin.toUpperCase()) == -1) {
+        letrasDigitadas.push(letraMin.toUpperCase());
+        if (letrasAcertadas.indexOf(letraMin) == -1) {
+          erros++;
+        }
+      } else {
+        alertas.innerHTML = `<p>Você já digitou essa letra!</p>`;
+          alertas.style.display = `block`;
+          clearTimeout(tempoAlerta);
+          tempoAlerta = setTimeout(()=>{alertas.style.display = `none`; clearTimeout(tempoAlerta); alertas.innerHTML=``;}, 2000);
+      }
+      digitadas.innerHTML = `Letras Digitadas: ${letrasDigitadas}`;
       
       // criando o boneco de acordo com a quantidade de erros
       switch (erros) {

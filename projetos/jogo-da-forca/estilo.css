@@ -1,16 +1,18 @@
 body {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   background-color: #333333;
   color: white;
   text-align: center;
-  font-size: 1.2em;
+  /* Ajuste de fonte base com limite superior */
+  font-size: clamp(1rem, 1rem + 0.5vw, 1.5rem); /* Min: 1rem, ideal: 1rem + 0.5vw, max: 1.5rem */
   user-select: none;
 }
 
 #jogo {
-  min-width: 800px;
+  min-width: 90vw;
+  max-width: 800px;
+  padding: 0 10px;
 }
 
 #alertas {
@@ -18,11 +20,11 @@ body {
   display: none;
   text-align: center;
   background-color: transparent;
-  font-size: 1em;
+  font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
   animation-name: popup;
   animation-duration: 0.8s;
-  left: 30vw;
-  right: 30vw;
+  left: 10vw;
+  right: 10vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -42,27 +44,27 @@ section {
 }
 
 #digitadas {
-  font-size: 0.8em;
+  font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
   text-align: left;
   overflow: scroll;
   overflow-x: hidden;
   overflow-y: hidden;
-  max-width: 50vw;
+  max-width: 80vw;
   width: auto;
 }
 
 #tentativas {
   position: absolute;
-  font-size: 0.8em;
+  font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
   text-align: left;
   overflow: scroll;
-  max-width: 50vw;
+  max-width: 80vw;
   width: auto;
 }
 
 #boneco {
-  width: 150px;
-  height: 150px;
+  width: clamp(100px, 20vmin, 200px); /* Min: 100px, ideal: 20vmin, max: 200px */
+  height: clamp(100px, 20vmin, 200px);
   background-image: url("./imgs/forca0.png");
   background-size: cover;
 }
@@ -76,24 +78,23 @@ section {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2em;
-  height: 2em;
+  width: clamp(20px, 3vmin, 40px); /* Aumentado para telas grandes */
+  height: clamp(20px, 3vmin, 40px);
   border: 1px solid white;
   margin: 2px;
-  font-size: 1em;
+  font-size: clamp(0.8rem, 0.8rem + 0.2vw, 1.2rem);
   font-family: monospace;
   color: white;
   background-color: #222222;
 }
 
-
 #dicas {
   position: absolute;
-  max-width: 50vw;
+  max-width: 80vw;
   width: auto;
   height: auto;
   background-color: #222222;
-  font-size: 0.80em;
+  font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
   text-align: left;
   padding: 3px;
 }
@@ -126,24 +127,24 @@ section {
 }
 
 #dados label {
-  font-size: 1em;
+  font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
 }
 
 #dados input {
-  width: 2em;
-  height: 2em;
+  width: clamp(20px, 3vmin, 40px);
+  height: clamp(20px, 3vmin, 40px);
   text-align: center;
   border: 1px solid white;
   background-color: #000;
   color: white;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
 }
 
 #dados button {
-  height: 2.2em;
+  height: clamp(25px, 3.5vmin, 45px);
   padding: 0 12px;
-  font-size: 1em;
+  font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
   font-weight: bold;
   background-color: #e0e0e0;
   border: none;
@@ -151,9 +152,9 @@ section {
   border-radius: 4px;
 }
 
-
 h1 {
   margin: 1px;
+  font-size: clamp(1.5rem, 1.5rem + 0.5vw, 2.5rem);
 }
 
 #iniciar {
@@ -161,12 +162,12 @@ h1 {
   margin-top: 3px;
   margin-bottom: 3px;
   padding: 1px;
-  font-size: 1.2em;
+  font-size: clamp(1rem, 1rem + 0.3vw, 1.5rem);
 }
 
 #ganhaPerde {
   display: none;
-  font-size: 1em;
+  font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
   margin: 1px;
   padding: 20px;
   border: 1px solid white;
@@ -184,16 +185,122 @@ h1 {
 }
 
 footer {
-  font-size: 0.6em;
+  font-size: clamp(0.5rem, 0.5rem + 0.2vw, 0.8rem);
 }
 
 @keyframes popup {
-  0%{top: 15px}
-  1%{top: 14px}
-  2%{top: 13px}
-  3%{top: 12px}
-  4%{top: 11px}
-  5%{top: 10px}
-  6%{top: 9px}
-  7%{top: 8px}
+  0% { top: 15px; }
+  1% { top: 14px; }
+  2% { top: 13px; }
+  3% { top: 12px; }
+  4% { top: 11px; }
+  5% { top: 10px; }
+  6% { top: 9px; }
+  7% { top: 8px; }
+}
+
+/* Media query para telas menores (abaixo de 600px) */
+@media (max-width: 600px) {
+  body {
+    font-size: clamp(0.8rem, 0.8rem + 0.5vw, 1rem);
+  }
+
+  #jogo {
+    min-width: 90vw;
+    padding: 0 5px;
+  }
+
+  #digitadas,
+  #tentativas,
+  #dicas {
+    max-width: 90vw;
+    font-size: clamp(0.5rem, 0.5rem + 0.3vw, 0.8rem);
+  }
+
+  #boneco {
+    width: clamp(80px, 15vmin, 150px);
+    height: clamp(80px, 15vmin, 150px);
+  }
+
+  #caixasLetras > div {
+    width: clamp(15px, 2vmin, 30px);
+    height: clamp(15px, 2vmin, 30px);
+    font-size: clamp(0.6rem, 0.6rem + 0.2vw, 1rem);
+  }
+
+  #dados {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  #dados input {
+    width: clamp(15px, 2vmin, 30px);
+    height: clamp(15px, 2vmin, 30px);
+    font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
+  }
+
+  #dados button {
+    height: clamp(20px, 2.5vmin, 35px);
+    padding: 0 8px;
+    font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
+  }
+
+  #dados label {
+    font-size: clamp(0.6rem, 0.6rem + 0.3vw, 1rem);
+  }
+
+  #iniciar {
+    font-size: clamp(0.8rem, 0.8rem + 0.3vw, 1.2rem);
+  }
+
+  h1 {
+    font-size: clamp(1.2rem, 1.2rem + 0.5vw, 2rem);
+  }
+}
+
+/* Media query para telas grandes (acima de 1200px) */
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.2rem; /* Aumenta a fonte base */
+  }
+
+  #jogo {
+    min-width: 70vw; /* Reduz a largura relativa para telas grandes */
+    max-width: 1000px;
+  }
+
+  #boneco {
+    width: 200px; /* Tamanho fixo maior */
+    height: 200px;
+  }
+
+  #caixasLetras > div {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  #dados input {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  #dados button {
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  #dados label {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #iniciar {
+    font-size: 1.5rem;
+  }
 }
